@@ -1,0 +1,17 @@
+/* Common Styles for the devices below 479px width */
+@media only screen and (max-width: 479px) {
+
+/* Home */	
+.dt-sc-icon-box.type6 .icon-content h4 { font-size: 23px; margin-top: 0; }
+.dt-sc-newsletter-section.type1 h2:after { background-repeat: no-repeat; }
+.header-align-center #header .header-right .text-with-icon:first-child { margin-top: 0; }
+.header-align-center #header .header-right .text-with-icon { margin-top: 20px; }
+.dt-sc-counter.type1 .icon-wrapper { left: 10px; }
+
+/* Tracking Form */
+.wpcargo-wrap-details { padding: 0; }
+#wpcargo-result .col-12 p.label-info { padding: 0 20px !important; }
+
+.dt-sc-progress .dt-sc-bar-text > span { margin-top: -25px; margin-right: -20px; }
+	
+}

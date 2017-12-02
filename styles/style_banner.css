@@ -1,0 +1,143 @@
+body {
+	margin:0;
+	padding:0;
+}
+
+
+.slider-wrapper { 
+	width: 100%; 
+	margin: 0 auto;
+	position:relative;
+	overflow:hidden;
+}
+
+.searchBox {
+    border-radius: 2px;
+    width:55%;
+	border-radius: 2px;
+
+	 /*background-image: linear-gradient(200deg, rgba(124, 178, 40, 0.9) 0%, rgba(80, 179, 226, 0.9) 100%);*/
+       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+	   
+	   	 background:#7f7f7f;
+  background:rgba(75,74,78,0.3);
+
+	padding:15px 10px 5px 10px;
+
+    display: inline-block;
+    padding: 28px;
+    position: absolute;
+	top:30%;
+	left:25%;
+    z-index: 100;
+}
+
+.searchBox h2 {
+    color: white;
+    font-size: 30px;
+    font-weight: lighter;
+    line-height: 1em;
+    margin: 0 0 28px;
+	text-align:center;
+}
+
+.searchBox form {
+    padding: 0;
+}
+
+.opts {
+    display: block;
+    list-style: outside none none;
+    margin: 0 0 16px;
+    padding: 0;
+}
+
+.opts li {
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1em;
+    margin: 0;
+    padding: 7px 14px;
+    position: relative;
+    z-index: 102;
+}
+
+.opts li.sel {
+    color: #597f1d;
+}
+
+.fields {
+    border-collapse: collapse;
+    max-width: 600px;
+    width: 100%;
+}
+
+.cell {
+    width: 51%;
+	display: table-cell;
+    float: none !important;
+    vertical-align: top;
+}
+
+.cell input[type="text"] {
+    margin: 0;
+    width: 100%;
+	border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+	padding: 9px 10px;
+	height: 40px;
+	font-size: 16px;
+	line-height: 19.2px;
+	vertical-align: middle;
+	background-color: #fff;
+    border: 1px solid #ccc;
+	box-shadow: 0 1px 0 0 #d0d0d0 inset;
+    box-sizing: border-box;
+    color: #666;
+	display: inline-block;
+	outline: medium none;
+	transition: box-shadow 0.25s ease 0s, border-color 0.25s ease 0s;
+}
+
+
+.clear {
+	clear:both;
+}
+
+@media all and (max-width:800px) {
+	.searchBox {
+	left:15%;
+}
+}
+
+
+@media all and (max-width:550px) {
+	
+	.searchBox {
+    padding: 1%;
+    width: 98%;
+	margin:15px 0 ;
+	left:0;
+	top:15%;
+}
+	
+	.cell {
+    width: 100%;
+	display:block;
+	clear:both;
+	margin-top:5px;
+}
+
+
+.search_btn {
+	width:100%;
+}
+
+
+.search {
+    float:right;
+}
+
+}

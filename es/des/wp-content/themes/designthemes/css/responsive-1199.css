@@ -1,0 +1,44 @@
+/* Note: Design for a width of 960px */	
+@media only screen and (min-width:992px) and (max-width:1199px) {
+
+/* Home */
+
+#main-menu ul.menu > li > a { font-size: 14px !important; }
+.menu-with-slanting-splitter #main-menu > ul.menu > li > a { padding: 0px 18px; }
+.vcr_content_flex_align { padding: 45px 5% 100px 40px; }	
+.dt-sc-newsletter-section.type1 .dt-sc-subscribe-frm input[type="email"], .dt-sc-newsletter-section.type1 .dt-sc-subscribe-frm input[type="text"] { margin-right: 30px; }
+.dt-sc-newsletter-section.type1 h2 { font-size: 18px; }
+.dt-sc-newsletter-section.type1 h2:after { right: -10px; }
+.dt-sc-icon-box.type6 .icon-content h4 { font-size: 20px; margin-top: 0; }
+
+.dt-sc-testimonial-wrapper .carousel-arrows { bottom: -30px; }
+
+.dt-sc-title.with-two-color-stripe h5:before { display: none; }
+
+/* boxed layout */
+.layout-boxed .main-header-wrapper { width: 100% !important; }
+
+
+/* Store Locator */
+.wpsl-dropdown { height: 34px; padding: 0 10px !important; }
+@-moz-document url-prefix() { .wpsl-dropdown { padding: 0px !important; } }
+
+/* Sidebar */
+.secondary-has-both-sidebar .widget #wp-calendar th { padding: 5px; }
+.secondary-has-both-sidebar .widget #wp-calendar td { padding: 6px 4px; }
+
+.vc_min_height_left .vc_column-inner, .vc_min_height_right .vc_column-inner { height: 100% !important; }
+
+/* Shortcode */
+.dt-sc-team.rounded.hide-social-show-on-hover .dt-sc-team-social { top: 22%; }
+.dt-sc-one-fifth .dt-sc-donutchart, .dt-sc-donutchart-medium canvas { width: 165px !important;  height: 166px !important; }
+.dt-sc-timeline-section.type4 .dt-sc-timeline-image-wrapper:before { left: -48px; }
+.dt-sc-icon-box.type12 { padding-left: 0; padding-right: 0; }
+.dt-sc-icon-box.type12 .icon-content h4 {  display: block; }
+.dt-sc-triangle-content h5 { font-size: 10px; }
+
+/* sidebar */
+.widget #wp-calendar td { padding: 9px 5px; }
+.widget #wp-calendar th { padding: 10px 5px; }
+
+}

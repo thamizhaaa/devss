@@ -1,0 +1,507 @@
+
+<?php
+@include("config.php");
+@include ("user_sessioncheck.php");
+
+
+if ($user_id != "" || $empuser_id =="")
+{
+header('Location: index.php');
+}
+//session_start();
+$pack_id = $_REQUEST['id'];
+$emp_id = $_REQUEST['empid'];
+//print_r($_SESSION);exit;
+//echo $fldid;
+?><!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from templates.Staffing Spot.com/opportunities-v3/demo/pricing.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Mar 2017 01:56:56 GMT -->
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Vinformax">
+<title>Staffing Spot</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<!-- BOOTSTRAPE STYLESHEET CSS FILES -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- JQUERY MENU -->
+<link rel="stylesheet" href="css/mega_menu.min.css">
+
+<!-- ANIMATION -->
+<link rel="stylesheet" href="css/animate.min.css">
+
+<!-- OWl  CAROUSEL-->
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/owl.style.css">
+
+<!-- TEMPLATE CORE CSS -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style1.css">
+<link rel="stylesheet" href="css/mobile.css">
+
+<!-- FOR THIS PAGE ONLY -->
+<link href="css/select2.min.css" rel="stylesheet" />
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/et-line-fonts.css" type="text/css">
+
+<!-- Google Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900,300" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+
+<!-- JavaScripts -->
+<script src="js/modernizr.js"></script>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<?php   
+@include("top.php");
+
+?>
+<div class="page category-page">
+<div id="spinner">
+<div class="spinner-img"> <img alt="Staffing Spot - the spot for your career" src="images/loader.svg" />
+<h2>Please Wait...</h2>
+</div>
+</div>
+
+<div class="clearfix"></div>
+
+
+<section class="job-breadcrumb">
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-sm-7 co-xs-12 text-left">
+<h3>Buy Package</h3>
+</div>
+<div class="col-md-6 col-sm-5 co-xs-12 text-right">
+<div class="bread">
+<ol class="breadcrumb">
+<li><a href="index.php">Home</a> </li>
+<li class="active">Package</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="dashboard-body">
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+<div class="col-md-12 col-sm-12 col-xs-12 text-center" id="postjobtab">
+
+<div class="Heading-title-left black small-heading">
+<h3>Buy Package</h3>
+<?php //echo $empuser_id;?>
+</div>
+<div class="post-job2-panel">
+<form class="row" id="form123" enctype="multipart/formdata" method="post">
+
+
+
+<!--                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+<div class="form-group">
+
+<label>Reume: <span class="required">*</span></label>
+<input type="text" id="packageresume" name="packageresume" placeholder="Enter the Package" value="<?php echo $row['fld_resume_download']; ?>" class="form-control">
+</div>
+</div>-->
+
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+<?php			
+
+$sql="SELECT DISTINCT tbl_package_price.fld_id,tbl_package_price.fld_currency_type , tbl_package_price.fld_pname , tbl_package_price.fld_pprice , tbl_package_price.fld_no_posting , tbl_package_price.fld_resume_download , tbl_package_price.fld_no_posting ,tbl_currency_type.fld_symbol FROM tbl_package_price INNER JOIN tbl_currency_type ON (tbl_package_price.fld_currency_type=tbl_currency_type.fld_currency_name) WHERE tbl_package_price.fld_id=$pack_id ";
+
+
+$res=mysql_query($sql);
+$rows=mysql_fetch_assoc($res);
+?>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3">
+<div class="single-price text-center" style="align:center;">
+<div class="price-header">
+<input type="hidden" id="packagename" value="<?php echo $rows['fld_pname']; ?>">
+<p class="plan-title"><?php echo $rows['fld_pname']; ?></p>
+</div>
+
+<div class="plan-price">
+<h4><span><?php echo $rows['fld_symbol']; ?></span><br/><?php echo $rows['fld_pprice']; ?></h4>                                    
+<input type="hidden" id="price" value="<?php echo $rows['fld_pprice']; ?>">
+</div>
+
+<div class="price-features">
+<input type="hidden" id="packagepost" value="<?php echo $rows['fld_no_posting']; ?>">
+<p><strong><?php echo $rows['fld_no_posting']; ?>+</strong> Job Posting</p>
+
+<input type="hidden" id="packageresume" value="<?php echo $rows['fld_resume_download']; ?>">
+<p><strong><?php echo $rows['fld_resume_download']; ?>+</strong> Monthly Resume</p>
+
+<p><strong>Unlimited</strong> Search</p>
+</div>
+
+<div class="price-features">
+<input type="hidden" id="packageview" value="<?php echo $rows['fld_no_posting']; ?>">
+<p><strong><?php echo $rows['fld_no_posting']; ?>-</strong>Views</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+                               <div class="col-md-12">
+                                    <b><p class="mb-25">In <?php echo $rows['fld_pname']; ?> type of package the user can view <?php echo $rows['fld_resume_download']; ?>+ resumes 
+monthly and can post <?php echo $rows['fld_no_posting']; ?>+Jobposting</p></b>
+                                </div>
+
+<?php 
+$sql_pack = "select * from tbl_package_detail where fld_emp_id=$emp_id";
+$res_pack=mysql_query($sql_pack);
+$rows_pack=mysql_fetch_assoc($res_pack);
+?>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+<div class="form-group">
+<!--<input class="span4 input-big" id="dare_price" name="price" size="30" type="text" onChange="updatePrice()" />-->
+<label>Validity</label>
+<select id="dare_price" class="form-control" name="validity" name="price" <?php if($rows_pack['fld_emp_id'] == $emp_id){?> disabled="true" <?php } ?> >
+
+<!--<option value="">select</option>-->
+<option value="1">1 year</option>
+<option value="2">2 year</option>
+<option value="3">3 year</option>
+<option value="4">4 year</option>
+<option value="5">5 year</option>
+
+</select>
+</div>
+</div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+<div class="form-group">
+<label>Currency Type</label>
+<?php
+$curr_quora = "SELECT fld_id,fld_currency_name FROM tbl_currency_type WHERE fld_currency_delstatus <> 2 order by fld_currency_name ASC ";
+$curr = mysql_query($curr_quora);
+?>
+<select  id="currency_type" name="currency" class="form-control" <?php if($rows_pack['fld_emp_id'] == $emp_id){?> disabled="true" <?php } ?> >
+<?php while($curr_row=mysql_fetch_array($curr)){ ?>
+<option value="<?php  echo $curr_row['fld_id']; ?>"><?php echo $curr_row['fld_currency_name'];  ?></option>
+<?php } ?>
+</select>
+</div>
+</div>
+
+<div id="total"></div>
+                                        <div class="col-md-4 col-sm-4 col-xs-12" >
+<div class="form-group total_price">
+<label>Package Price</label>
+<input class="form-control" onkeypress="javascript:return isNumber(event)" id="total_price_amount" value="<?php echo $rows['fld_pprice']; ?>" <?php if($rows_pack['fld_emp_id'] == $emp_id)
+{
+?> disabled="true" <?php                            
+} ?> disabled="true">                                        
+</div>
+</div>
+</div> 
+<?php // }?>
+
+</form>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+<?php if($rows_pack['fld_package_id'] == $pack_id && $rows_pack['fld_emp_id'] == $emp_id){?>
+<input type='submit' class="btn btn-default" id="purchase_pack" value="Purchased"> 
+
+<?php } else if($rows_pack['fld_package_id'] != $pack_id && $rows_pack['fld_emp_id'] == $emp_id){ ?>
+<input type='button' class="btn btn-default" id="buy_pack"  value="BUY NOW"> 
+<?php } else { ?>
+
+<input type='submit' class="btn btn-default" id="buynow"  value="BUY NOW"> 
+<?php } ?>
+
+</div>
+
+
+</div>
+</div>
+</div>      
+
+<!-- Edit job Tab Start-->
+
+</div>
+</div>
+</div>
+</section>
+
+<div class="modal fade" id="buy_booster" data-toggle="buy_booster" data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<center><h4 class="modal-title">Staffingspot | Job Portal</h4></center>
+</div>
+<div class="modal-body">
+<p>You have already purchased a package</p>
+<p>If you want more package, you can add booster</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="purchase_booster" data-toggle="purchase_booster" data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<center><h4 class="modal-title">Staffingspot | Job Portal</h4></center>
+</div>
+<div class="modal-body">
+<p>You have already purchased this package</p>
+<p>If you want more package, you can add booster</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+</div>
+</div>
+</div>
+</div>
+
+<?php 
+@include("bottom.php");
+?>
+<a href="#" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JAVASCRIPT JS  -->
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+<!-- JAVASCRIPT JS  --> 
+<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+<!-- BOOTSTRAP CORE JS -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<!-- JQUERY SELECT -->
+<script src="js/select2.min.js" type="text/javascript"></script>
+
+<!-- MEGA MENU -->
+<script type="text/javascript" src="js/mega_menu.min.js"></script>
+
+
+
+<!-- JQUERY COUNTERUP -->
+<script type="text/javascript" src="js/counterup.js"></script>
+
+<!-- JQUERY WAYPOINT -->
+<script type="text/javascript" src="js/waypoints.min.js"></script>
+
+<!-- JQUERY REVEAL -->
+<script type="text/javascript" src="js/footer-reveal.min.js"></script>
+
+<!-- Owl Carousel -->
+<script type="text/javascript" src="js/owl-carousel.js"></script>
+
+<!-- CORE JS -->
+<script type="text/javascript" src="js/custom.js"></script>
+</div>
+</body>
+
+<script type="text/javascript" src="scripts/validate.min.js"></script>
+<!--<script type="text/javascript" src="scripts/jquery.form.js"></script>-->
+<!--<script>
+
+function updatePrice()
+{
+
+var year = $("#dare_price").val();
+//    alert(year);
+var price = $("#price").val();
+//    alert(price);
+var total = (price * year);
+//    alert(total);
+$("#total").html('<div class="col-md-6 col-sm-6 col-xs-12"><div class="form-group"><input class="span4 input-big" id="total_price_amount" readonly="readonly" value=' +total+' /></div></div>');
+$("#hide").hide();
+
+}
+</script>-->
+<script>  
+
+$('#buy_pack').click(function(){
+$('#buy_booster').modal('show');
+});
+$('#purchase_pack').click(function(){
+$('#purchase_booster').modal('show');
+});
+
+
+
+//$(document).ready(function () {
+var year = $("#dare_price").val();
+var currency = $("#currency_type").val();
+var price = $("#price").val();
+if(currency=='2'){
+var dollar = (year * price * 1);
+$(".total_price").html('<label>Package Price</label><input id="total_price_amount"  value=' +dollar+' disabled="true"/>');
+}
+$('#currency_type,#dare_price').change(function(){
+var year = $("#dare_price").val();
+var currency = $("#currency_type").val();
+var price = $("#price").val();
+if(currency=='2'){
+var indian = (year * price * 65);
+$(".total_price").html('<label>Package Price</label><input id="total_price_amount"  value=' +indian+' disabled="true"/>');
+}
+else {
+var dollar = (year * price * 1);
+$(".total_price").html('<label>Package Price</label><input id="total_price_amount"  value=' +dollar+' disabled="true"/>');
+}       
+});
+//                });
+</script>
+<script>
+//            $(document).ready(function () {
+
+//                $('#dare_price').change(function(){
+//                    
+//                    
+//                    var year = $("#dare_price").val();
+//                   
+//                    var price = $("#price").val();
+//                    //    alert(price);
+//                    var total = (price * year);
+//                    $(".total_price").html('<input id="total_price_amount"  value=' +total+' />');
+//                });
+
+
+
+
+$("#buynow").click(function() {     
+//                    alert("haii");
+
+
+var year = $("#dare_price").val();
+//alert(year);
+var price = $("#price").val();
+//    alert(price);
+var total = $("#total_price_amount").val();
+//                        alert(total);
+
+
+
+var packagename = $("#packagename").val();		
+//                        var packageprice = $("#packageprice").val();
+var packagepost = $("#packagepost").val();
+var packageresume = $("#packageresume").val();
+var packageview = $("#packageview").val();
+var sessionempid = '<?php echo $empuser_id;?>';
+
+
+$.ajax({				
+type: "POST",
+url: "payment_insert.php",
+data: 
+{		
+year:year,price:price,total:total,packagename : packagename,packagepost:packagepost,packageresume:packageresume,packageview:packageview,sessionempid:sessionempid				
+},				
+
+success:function(data)
+{	
+var response =$.trim(data);
+//                                        console.log('success:'data);
+// alert(data);
+if(response=="true"){
+swal(
+'',
+'You are buying <?php echo $rows['fld_pname']; ?> Package',
+'success'
+)
+$('.swal2-confirm').click(function(){
+window.location = "your-order.php";
+});
+
+}
+}	
+});
+return true;
+});
+//            });
+
+
+
+
+
+//                    submitHandler: function (form) {
+//                        
+//                        var packagename = $("#packagename").val();		
+//                        var packageprice = $("#packageprice").val();
+//                        var packagevalidity = $("#packagevalidity").val();
+//                        
+//                        
+//                        var sessionempid = '<?php //echo $empuser_id;?>';
+//                        
+//                       
+//                        $.ajax({				
+//                                type: "POST",
+//                                url: "payment_insert.php",
+//                                data: 
+//                                {		
+//                                packagename : packagename, packageprice: packageprice,packagevalidity:packagevalidity,sessionempid:sessionempid				
+//                                },				
+//                                datatype: 'html',
+//                                success: function (data)
+//                                    {	
+////                                        console.log('success:'data);
+//                                       // alert(data);
+////                                        alert("Alert Details are Inserted Successfully");	
+////                                        location.reload();
+//                                    }	
+//                                });
+//                                return true;
+//                                   
+//     }                         
+
+
+
+
+</script>
+
+<script>
+
+
+// WRITE THE VALIDATION SCRIPT IN THE HEAD TAG.
+
+function isNumber(evt) {
+var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+return false;
+
+return true;
+}
+$('#total_price_amount').bind("cut copy paste",function(e) {
+e.preventDefault();
+});
+</script>
+<!-- Mirrored from templates.Staffing Spot.com/opportunities-v3/demo/pricing.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Mar 2017 01:56:56 GMT -->
+</html>

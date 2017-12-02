@@ -1,0 +1,82 @@
+<h1>Global Settings</h1>
+
+<form role="form" method="post" id="global_settings_submit">
+
+    <div class="col-lg-6">
+
+        <div class="box-body">
+
+            <div class="form-group">
+                <label>Widget code</label>
+                    <textarea id="chat_widget_snippet" class="form-control" rows="3" disabled><script type="text/javascript" id="ultimate_support_chat" src="{$protocol}{$application_path}widget/ultimate_chat_widget.js"></script></textarea>
+                    <i>Paste this code snippet under the closing body tag in the pages where you want the chat widget to appear.</i>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="offline_hide" value="true" {if $smarty.post.offline_hide =='true'}checked{/if}>Hide widget when operators are offline
+                </label>
+            </div>
+
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="admin_desktop_notifications" value="true" {if $smarty.post.admin_desktop_notifications =='true'}checked{/if}>Show admin desktop notifications
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="admin_incoming_chat_request_audio" id="admin_incoming_chat_request_audio" value="true" {if $smarty.post.admin_incoming_chat_request_audio =='true'}checked{/if}>Incoming chat request sound notification
+                </label>
+            </div>
+
+            <div id="admin_incoming_chat_request_audio_options" {if $smarty.post.admin_incoming_chat_request_audio !=='true'}style="display:none"{/if}>
+                <div class="global_audio_wrapper">
+                    <label>
+                    <select id="incoming_chat_audio" name="incoming_chat_audio">
+                        <option value="9" {if $smarty.post.incoming_chat_audio =='9'}selected{/if}>Default</option>
+                        <option value="0" {if $smarty.post.incoming_chat_audio =='0'}selected{/if}>0</option>
+                        <option value="1" {if $smarty.post.incoming_chat_audio =='1'}selected{/if}>1</option>
+                        <option value="2" {if $smarty.post.incoming_chat_audio =='2'}selected{/if}>2</option>
+                        <option value="3" {if $smarty.post.incoming_chat_audio =='3'}selected{/if}>3</option>
+                        <option value="4" {if $smarty.post.incoming_chat_audio =='4'}selected{/if}>4</option>
+                        <option value="5" {if $smarty.post.incoming_chat_audio =='5'}selected{/if}>5</option>
+                        <option value="6" {if $smarty.post.incoming_chat_audio =='6'}selected{/if}>6</option>
+                        <option value="7" {if $smarty.post.incoming_chat_audio =='7'}selected{/if}>7</option>
+                        <option value="8" {if $smarty.post.incoming_chat_audio =='8'}selected{/if}>8</option>
+                    </select>
+                    </label>
+                </div>
+                <audio id="audio_player"></audio>
+                <div id="play_pause" class="global_play_pause"><i class="play_pause_icon fa fa-play"></i></div>
+                <br/>
+            </div>
+
+            <div class="form-group">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="track_users" id="track_users" value="all" {if $smarty.post.track_users =='all'}checked{/if}>
+                        Track all website users
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="track_users" id="track_users" value="chats" {if $smarty.post.track_users =='chats'}checked{/if}>
+                        Track only chat requests
+                    </label>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="box-footer">
+            <button type="submit" name="submit" value="true" class="btn btn-primary">Save</button>
+        </div>
+
+    </div>
+
+</form>
+
+<script src="{$data_server}js/global_settings.min.js" type="text/javascript"></script>

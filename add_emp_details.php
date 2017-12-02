@@ -1,0 +1,652 @@
+<?php
+include('config.php');
+//print_r($_SESSION);
+@include("user_sessioncheck.php");
+if($empuser_id == "" || $empotherdetails == 1)
+{    
+    header('Location: index.php'); 
+}
+//$name = $_SESSION["empuser_name"];
+$id = $_SESSION['empuser_id'];
+    
+?><!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="Vinformax">
+        <title>Staffing spot | Add Employee Details</title>   
+
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+        <!-- BOOTSTRAPE STYLESHEET CSS FILES -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- JQUERY SELECT -->
+        <link href="css/select2.min.css" rel="stylesheet" />
+        <!-- JQUERY MENU -->
+        <link rel="stylesheet" href="css/mega_menu.min.css">
+
+        <!-- ANIMATION -->
+        <link rel="stylesheet" href="css/animate.min.css">
+
+        <!-- OWl  CAROUSEL-->
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/owl.style.css">
+
+        <!-- TEMPLATE CORE CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style1.css">
+        <link rel="stylesheet" href="css/mobile.css">
+
+        <!-- FONT AWESOME -->
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/et-line-fonts.css" type="text/css">
+
+        <!-- Google Fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900,300" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"> 
+
+        <script src="js/modernizr.js"></script>
+
+    </head>
+
+    <body>
+
+        <div class="page category-page">
+            <div id="spinner">
+                <div class="spinner-img">
+                    <img alt="Staffing Spot - the spot for your career" src="images/loader.svg" />
+                    <h2>Please Wait...</h2>
+                </div>
+            </div>
+            <?php
+            @include("top.php");
+            ?>
+            <div class="clearfix"></div>          
+
+            <section class="job-breadcrumb">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-7 co-xs-12 text-left">
+                            <h3>Add Your Profile</h3>
+                        </div>
+                    
+                    </div>
+                </div>
+            </section>
+            <section class="dashboard-body">
+                <div class="container">
+                    
+                        <div class="col-md-12 col-sm-12 col-xs-12 nopadding">
+
+
+                            <div class="heading-inner first-heading">
+                                <p class="title">ADD Profile</p>
+                            </div>
+
+                            <div class="profile-edit row">
+                                <form id="addempdetails" name="addempdetails" method="POST" enctype="multipart/form-data">
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+
+                                            <label>Employer Name: <span class="required">*</span></label>
+                                            <input type="text" id="indusType" name="indusType" placeholder=""  class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Type of Business Entity <span class="required">*</span></label>
+                                            <input type="text" id="company_type" name="company_type" placeholder=""  class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>No. of Employees <span class="required">*</span></label>
+                                            <input type="text" onkeypress="return isNumberKey(event)" id="worker" name="worker" placeholder=""  class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="input-group image-preview form-group">
+                                            <label>Profile Image (Min width - 190 Min height - 190) : <span class="required">*</span>  </label>
+                                            <input type="text"  id="logo" name="fupload" placeholder="Upload Profile Image" class="form-control image-preview-filename" disabled="disabled">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                                    <span class="glyphicon glyphicon-remove"></span> Clear
+                                                </button>
+                                                <div class="btn btn-default image-preview-input">
+                                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                                    <span class="image-preview-input-title">Browse</span>
+                                                    <input type="file" data-filename-placement="inside" accept="image/jpg,image/png,image/jpeg,image/JPEG,image/PNG,image/JPG" name="img" id="img" />
+                                                </div>
+                                            </span>
+                                        </div>
+					<font color="#FF0000">Only JPG , PNG and JPEG  format allowed</font>
+					<div id="add_err_img"></div>
+                                    </div>
+
+<!--                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>contact person No: <span class="required">*</span></label>
+                                            <input type="text" id="phone" name="phone" placeholder="" onkeypress="return isNumberKey(event)" maxlength="10"  id="phone" class="form-control">
+                                        </div>
+                                    </div>-->
+
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Industry Type: <span class="required">*</span></label>
+
+                                            <select id="type" name="type" class="questions-category form-control" data-placeholder="Select Industry Type">
+                        <option value="">Select Industry Type</option>>
+                                                <?php
+                                                $sql = "select * from `tbl_industry_type` WHERE fld_delstatus!=2";
+                                                $res = mysql_query($sql);
+                                                while ($row = mysql_fetch_assoc($res)) {
+                                                    ?>
+                                                    <option value="<?php echo $row['fld_industrytype']; ?>" ><?php echo $row['fld_industrytype']; ?></option><?php }
+                                                ?></select>
+                                        </div>
+                    <div id="add_err_type"></div>
+                                    </div>                                    
+
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Country <span class="required">*</span></label>
+                                            <input type='text' placeholder='Select Country' class='flexdatalist country_allresults' data-data='country.json' data-search-in='country' multiple='multiple' data-selection-required='true' data-value-property='*' data-min-length='0' name='country'>
+                                        </div>
+                    <div id="add_err_country"></div>
+                                    </div>
+                                                    
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label>State <span class="required">*</span></label>
+                                            
+                                            <select id="state" name="state" class="questions-category form-control state_allresults" data-placeholder="Select State" multiple="true">
+                                            <?php 
+                                            foreach ($state_name as $state_name_list)
+                                            {   
+                                            ?>
+                                            <option  value="<?php echo $state_name_list;?>" ><?php echo $state_name_list;?></option><?php
+
+
+                                            }  ?>
+                                            </select>
+                                        </div>
+                    <div id="add_err_state"></div>
+                                    </div>                
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Location: <span class="required">*</span></label>
+                                            <select id="city" name="city" class="questions-category form-control" data-placeholder="Select City" multiple="true">
+                                            <?php 
+                                            foreach ($city_name as $city_name_list)
+                                            {   
+                                            ?>
+                                            <option  value="<?php echo $city_name_list;?>" ><?php echo $city_name_list;?></option><?php
+
+
+                                            }  ?>
+                                            </select>
+                                        </div>
+                    <div id="add_err_city"></div>
+                                    </div>       
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Address <span class="required">*</span></label>
+                                            <textarea id="address" name="address" class="ckeditor"  placeholder="Please Provide Your Address" rows="4" cols="50"></textarea>                                                        <div id="add_err_address"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label>About Company <span class="required">*</span></label>                                         
+                                      
+                                            
+                    <textarea cols="6" id="company_desc" name="company_desc" rows="8" placeholder="Please Provide Company Description" class="ckeditor"></textarea>
+                    <div id="add_err_company_desc"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12">
+<!--                                         <button id="update" class="btn btn-default pull-right" onClick="fn_update(1)"> Save Profile <i class="fa fa-angle-right"></i></button>-->
+                                        <input type="submit" id="update" class="btn btn-default pull-right" name="add_profile" value="Save Profile"/>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                </div>
+            </section>
+
+<?php
+@include("bottom.php");
+?>
+
+            <a href="#" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+            <script type="text/javascript "src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/validate.min.js"></script>
+            <script src="//cdn.ckeditor.com/4.5.5/standard/ckeditor.js"></script>
+            <script src="http://malsup.github.com/jquery.form.js"></script>        
+
+            <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+            
+            
+             <link href="scripts/ddl/jquery.flexdatalist.css" rel="stylesheet" type="text/css">
+<link href="scripts/ddl/jquery.flexdatalist.min.css" rel="stylesheet" type="text/css">
+<script src="scripts/ddl/jquery.flexdatalist.min.js"></script>
+<script src="scripts/ddl/jquery.flexdatalist.js"></script>
+
+
+            <script>
+ $('.country_allresults').flexdatalist({
+     minLength: 0,
+     valueProperty: '*',
+     selectionRequired: true, 
+     textProperty: '{country}',
+     searchIn: 'country',
+     data: 'country.json'
+});
+
+</script>
+            
+            <script>
+                                                
+//$(document).ready(function () {
+
+                $("#addempdetails").validate({
+                    ignore: [],
+                    rules: {
+                        indusType: {
+                            required: true
+                        },
+                        company_type: {
+                            required: true
+                        },
+                        worker: {
+                            required: true
+                        },
+            img: {
+                required: {
+                depends: function(){                 
+//                                    var image = $('input[name="fupload"]').val();
+//                                    if(image != '' && typeof image !== 'undefined'){
+//                                        return false;
+//                                    }else{
+                                        return true;
+//                                                    }
+                                                  }
+                },
+                filesize_max: 200000000,
+                accept: { uploadFile: true } 
+             },
+                        phone: {
+                            required: true,
+                            minlength: 10,
+                            maxlength: 10
+                        },
+                        type: {
+                            required: true
+                        },
+                        city: {
+                            required: true
+                        },
+                        country: {
+                            required: true
+                        },
+                        state: {
+                            required: true
+                        },
+                        address: {
+//                            required: true
+                                required: function (textarea) {
+                                CKEDITOR.instances[textarea.id].updateElement(); // update textarea
+                                var editorcontent = textarea.value.replace(/<[^>]*>/gi, ''); // strip tags
+                                return editorcontent.length === 0;
+                        }
+                        },
+                        company_desc: {
+//                            required: true
+                                required: function (textarea) {
+                                CKEDITOR.instances[textarea.id].updateElement(); // update textarea
+                                var editorcontent = textarea.value.replace(/<[^>]*>/gi, ''); // strip tags
+                                return editorcontent.length === 0;
+                        }
+                        }
+                    },
+                    messages: {
+                    },
+                    errorElement: "label",
+                    errorPlacement: function (error, element) {
+                        var elementName = $(element).attr('name');
+                        if (elementName == 'city') {
+                            $('#add_err_' + elementName).after(error);
+                        } else if (elementName == 'type') {
+                            $('#add_err_' + elementName).after(error);
+                        } else if (elementName == 'country') {
+                            $('#add_err_' + elementName).after(error);
+                        }  else if (elementName == 'state') {
+                            $('#add_err_' + elementName).after(error);
+                        }else if (elementName == 'img') {
+                            $('#add_err_' + elementName).after(error);
+                        } else if (elementName == 'address') {
+                            $('#add_err_' + elementName).after(error);
+                        } else if (elementName == 'company_desc') {
+                            $('#add_err_' + elementName).after(error);
+                        } else {
+                            element.after(error);
+                        }
+                    },
+                    submitHandler: function (form) {
+            swal({
+                title: 'Are you sure?',
+                text: "You want to update!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Update it!',
+                cancelButtonText: 'No, cancel!',
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false
+              }).then(function () {
+                                  var country_name=[];
+                var test_country = $(".country_allresults").val();
+                //alert(test);
+                if(test_country != ''){
+                data = JSON.parse(test_country);
+                var data_length = Object.keys(data).length;
+                for (var i = 0; i < data_length; i++) {
+                    if (data[i] != '') {
+                //      console.log('city:',data[i].city);
+                      country_name.push(data[i].country);
+
+                    }
+                  }
+                }
+        var country = country_name.join(",");
+                            var city = $("#city").val();
+                            var state = $("#state").val();
+                var indusType = $("#indusType").val();
+                var company_type = $("#company_type").val();
+                var worker = $("#worker").val();
+                var phone = $("#phone").val();
+//              var country = $(".country_allresults").val();
+                var type = $("#type").val();
+//              var address = $("#address").val();
+//              var company_desc = $("#company_desc").val().trim();
+                            
+                            var address = CKEDITOR.instances['address'].getData();
+//                            var address = $(ckeditor_address).text();
+                            var company_desc = CKEDITOR.instances['company_desc'].getData();
+//                            var company_desc = $(ckeditor_aboutmyself).text();
+                         
+//                var updateid = $("#update").data('id');
+                var updateid = <?php echo $id; ?>;
+                
+//              var Images = $("#img").data('name');
+                        $("#addempdetails").ajaxSubmit({ 
+                            type: "POST",
+                            url: "featured-jobs.php?op=adddetails",     
+                            async :true,
+                            cache : false,
+                            data : {indusType: indusType, company_type: company_type , worker: worker, phone: phone,type:type, company_desc: company_desc, city: city,state: state,id: updateid,country: country, address: address},
+                            success: function(data){
+//				var res = $.trim(data);
+//				alert(res);
+//				if(res == 'exceeds width and height'){
+//				    $("#add_err_img").css('display', 'inline', 'important');
+//				    $("#add_err_img").html("<center> Please give vaild dimensions above(190 * 190)</center>");
+////				    var msg = "Please give vaild dimensions above(190 * 190)";
+////				    $('#add_err_img').text(msg);
+//				    $(".overlaymodal").hide(); 
+//				    $("#add_err_img").fadeOut(5000);
+//				}
+                            $(".overlaymodal").hide(); 
+                            swal(
+                            '',
+                            'Details Added Successfully!',
+                            'success'
+                            )
+                            $('.swal2-confirm').click(function(){
+                                      $(location).attr('href','company-dashboard.php'); 
+                                  });
+//                                  
+                            },
+                            beforeSend:function()
+                            {
+				$("#infoerror").css('display', 'inline', 'important');
+				$("#infoerror").html("<center><img src='ajax.gif' /> Loading...</center>");
+				$(".overlaymodal").show(); 
+                            }       
+                        });     
+//            return false;           
+            }, function (dismiss) {
+                // dismiss can be 'cancel', 'overlay',
+                // 'close', and 'timer'
+                if (dismiss === 'cancel') {
+                  swal(
+                'Cancelled',
+                '',
+                'error'
+                  )
+                $('.swal2-confirm').click(function(){
+                                      location.reload();
+                                  });
+                        }   
+            })
+            }   
+	});
+
+
+
+$("#img").change(function () {
+       if ($(this).val() !== "") {
+        var file = $('#img')[0].files[0];
+//        console.log('name',file.name);
+    $(this).attr('data-name',file.name);
+        //console.log(file.width);
+        var reader = new FileReader();
+        var img = new Image();
+        var _URL = window.URL || window.webkitURL;
+        reader.readAsDataURL(file);
+        reader.onload = function(_file) {
+        var extension = file.name.replace(/^.*\./, '');
+        
+            img.src= _file.target.result;
+        
+        
+        if(extension == 'png' || extension=='jpg' || extension=='jpeg'){
+	    
+            if(img.width >= 190 && img.height >= 190){
+		return true;
+            }
+	    else{
+        $("#add_err_img").css({
+            'color': 'red',
+            'font-size': '16px',
+            'font-weight': '600',
+            'text-transform': 'capitalize'
+        });
+        var msg = "Please give vaild dimensions above(190 * 190)";
+//      $("#logo").val('');
+//      $("#img").val('');
+	$('#add_err_img').text(msg);
+        $("#add_err_img").fadeOut(5000);
+//      return false; 
+        }
+        }
+        
+        
+          } 
+       }
+    });
+
+
+            $.validator.addMethod("uploadFile", function(val, element) {
+                    var ext = $('#img').val().split('.').pop().toLowerCase(); 
+                    //alert(ext);
+                    var allow = new Array('gif','png','jpg','jpeg'); 
+                    if($.inArray(ext, allow) == -1) { 
+                       return false 
+                    }else{
+                        return true
+            }       
+
+                    }, "This is not an image file");
+                    
+                    $.validator.addMethod("filesize_max", function(value, element, param) {
+                    var isOptional = this.optional(element),
+                        file;
+                    if(isOptional) {
+                        return isOptional;
+            }       
+
+                    if ($(element).attr("type") === "file") {
+
+                        if (element.files && element.files.length) {
+
+                            file = element.files[0];            
+                            return ( file.size && file.size <= param ); 
+            }
+        }
+            return false;           
+                }, "File size is too large.");
+                 
+
+//});
+
+                                            function isNumberKey(evt)
+                                            {
+                                                var charCode = (evt.which) ? evt.which : event.keyCode
+                                                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                                                    return false;
+
+                                                return true;
+                                            }
+                                            
+                                            
+                        
+                $('.country_allresults').change(function () {
+//                alert('hi');
+                    var value = $(this).val();
+                    var items = [];
+//                    alert(value);
+                    var id=[];
+                    data = JSON.parse(value);
+                        var data_length = Object.keys(data).length;
+                        for (var i = 0; i < data_length; i++) {
+                            if (data[i] != '') {
+                              id.push(data[i].id);
+
+                            }
+                          }
+                          
+                          var country_id = id.join(",");
+                          var array = country_id.split(',');
+                          $.each(array,function(i){
+                              
+                              $.getJSON('state.json',function(data){
+                        var data_length = Object.keys(data).length;
+                        for(var j=0; j < data_length ; j++){
+                            if (data[j].country_id == array[i]) {
+//                              console.log('data',data[j]);
+                              items.push(data[j].state);
+
+                            }
+                            
+                        } 
+                        var state_name = items.join(",");
+//                         console.log('state_name:',state_name);
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "featured-jobs.php?op=emp_addstate",
+                        data: ({state_name: state_name}),
+                        success: function (data) {
+//                            alert(data);
+                            $("#state").html(data);
+                        }
+                    });
+                    });
+                             });
+                });
+                
+                $('.state_allresults').change(function () {
+                    var value = $(this).val();
+                    var items = [];
+                    var city = [];
+                          var array = value;
+                          $.each(array,function(i){
+                              $.getJSON('state.json',function(data){
+                                var data_length = Object.keys(data).length;
+                                for(var j=0; j < data_length ; j++){
+                                    if (data[j].state == array[i]) {
+                                      items.push(data[j].id);
+                                    }
+                                }
+                        var cities_name = items.join(",");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "featured-jobs.php?op=emp_addcities",
+                                    data: ({city_name: cities_name}),
+                                    success: function (data) {
+                                        $("#city").html(data);
+                                    }
+                                });
+                        });
+                    });
+                });
+                                            
+            </script>
+        <script>
+
+            $(document).click(function(){
+                var country = $("input.country_allresults").val();
+
+                if(country == ''){$("input.country_allresults").attr('placeholder', "Select Country");}
+                if(country != ''){$("input.country_allresults").attr('placeholder', "");}
+            });
+        </script>
+            <script>
+                jQuery(document).ready(function () {
+                    jQuery(".chosen").chosen();
+                });
+            </script>  
+
+            <!-- BOOTSTRAP CORE JS -->
+            <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+            <!-- JQUERY SELECT -->
+            <script type="text/javascript" src="js/select2.min.js"></script>
+
+            <!-- MEGA MENU -->
+            <script type="text/javascript" src="js/mega_menu.min.js"></script>
+
+            <!-- JQUERY COUNTERUP -->
+            <script type="text/javascript" src="js/counterup.js"></script>
+
+            <!-- JQUERY WAYPOINT -->
+            <script type="text/javascript" src="js/waypoints.min.js"></script>
+
+            <!-- JQUERY REVEAL -->
+            <script type="text/javascript" src="js/footer-reveal.min.js"></script>
+
+            <!-- Owl Carousel -->
+            <script type="text/javascript" src="js/owl-carousel.js"></script>
+
+            <!-- CORE JS -->
+            <script type="text/javascript" src="js/custom.js"></script>
+
+        </div>
+    </body>
+</html>

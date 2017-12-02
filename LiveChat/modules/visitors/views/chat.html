@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="{$data_server}css/chat.min.css" type="text/css" media="screen">
+<div class="chat_dashboard_container clearfix screenFiller">
+
+    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+        <h5><b>VISITORS:</b></h5>
+        <div id="visitor_list"></div>
+    </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="chat">
+            <div class="chat-header"></div>
+            <div id="chat_history" class="chat_history"></div>
+            <div class="chat-message">
+                <form name="operator-message-form" method="POST" action="">
+                    <textarea name="operator-message" id="operator-message" placeholder="Type your message"
+                              rows="3"></textarea>
+                    <button type="submit" name="operator-submit-message" id="operator-submit-message" value="Send">
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+        <div class="tech_specs">
+            <div id="path"></div>
+            <div id="location"></div>
+            <div id="browser"></div>
+            <div id="platform"></div>
+            <div id="screen"></div>
+            <div id="ip_address"></div>
+            <div id="end_chat_btn"></div>
+        </div>
+    </div>
+
+</div>
+
+{literal}
+<script>
+    var jsThemeConfig = JSON.parse('{/literal}{$preset_json}{literal}');
+    var requestID = '{/literal}{$smarty.get.request}{literal}';
+    var chatLoaded = '{/literal}{$smarty.get.request}{literal}';
+</script>
+{/literal}
+<script src="{$data_server}js/chat.min.js"></script>

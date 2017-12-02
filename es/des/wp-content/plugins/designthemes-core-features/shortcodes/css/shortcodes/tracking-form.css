@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* Table of Content
+==================================================
+	1.0 - Transition
+	2.0 - Popular Procedures
+	3.0 - Responsive
+	4.0 - Skin Color*/
+
+	
+	.wpcargo-track { width: 59%; margin: 0 auto; }
+	.vcr_track_img figure { position: absolute;  right: -50px; top: 0;  width: 50%; z-index: -9; }
+	.vcr_track_img figure .vc_single_image-wrapper { width: 62%; }
+	
+	.track_form_td { width: 100%; }	
+	@media screen and (-webkit-min-device-pixel-ratio:0) {   
+	.wpcargo-track .track_form_table .track_form_tr .track_form_td input#submit_wpcargo { top: 15px !Important; padding: 14px 40px !important; } 
+	}	
+	::i-block-chrome, .wpcargo-track .track_form_table .track_form_tr .track_form_td input#submit_wpcargo { top: 0 !Important; padding: 14px 40px !important; } 
+	.wpcargo-track .track_form_table .track_form_tr .track_form_td input#submit_wpcargo { position: relative; top: 0; padding: 12px 40px !important; }
+	.wpcargo-track .track_form_table .track_form_tr .track_form_td input#submit_wpcargo:hover { background: rgba(253, 195, 0, .9); }
+	.track_form_table .track_form_th h4, .track_form_table .track_form_td h4 { color: #fff; }
+	
+	.track_form_table .track_form_td h4 { text-align: center !important; padding: 0 !important; }
+	.track_form_th, .track_form_td { border: none !important; }
+	.track_form_tr:nth-child(2) .track_form_td:nth-child(2) { padding-right: 50px; }
+	.track_form_tr:nth-child(2) .track_form_td:first-child { padding-right: 0; padding-left: 50px; }
+	.vcr_track_bg_align {  background-repeat: repeat !important; background-size: contain !important; }
+
+	tr.track_form_tr:nth-child(3) td.track_form_td, tr.track_form_tr:nth-child(2) td.track_form_td { background: #00bef2; }
+	
+	#wpcargo-result { margin-bottom: 20px; text-align: center; }
+	#wpcargo-result-print h3 { border: 1px solid; display: inline-block; padding: 12px 20px 12px 60px !important; position: relative; overflow: hidden; }
+	
+	#wpcargo-result-print h3:before { position: absolute; content: ""; left: -5px; top: 0; width: 50px; height: 100%; border-radius: 0 25px 25px 0; }
+	#wpcargo-result-print h3:after { position: absolute;  content: "\f129"; font-family: fontawesome; color: #fff; left: 10px; top: 0; line-height: 50px; font-size: 36px; }
+	
+	tbody tr:nth-child(2n+1) td:after { background: rgba(0, 0, 0, .15); content: ""; height: 1px; left: 0; position: absolute; top: 0; width: 100%; }
+	tbody tr:nth-child(2n+1) td { position: relative; }	
+	
+	.wpcargo-track .track_form_table .track_form_tr .track_form_td input.input_track_num { padding: 10px 12px !important; }
+	 
+	#wpcargo-result #shipment-info p.label { font-weight: 600 !important; }
+	#wpcargo-result p.label { font-size: 15px !important; margin-bottom: 5px; }
+	#wpcargo-result p.label-info { font-size: 14px; margin-bottom: 10px; }
+	#wpcargo-result .col-12 p.label-info { padding: 0px 80px !important; }
+	
+	.wpcargo-result #shipment-info { padding: 15px 0 !important; }
+	
+	#wpcargo-result .shipper.details, #wpcargo-result .receiver.details { font-size: 15px; padding: 20px; }
+	#wpcargo-result #shipment-info .col-12 { padding: 20px 0 0; }
+	#wpcargo-result #shipment-info .col-4 { padding: 10px 0px; }
+	
+	.wpcargo-wrap-details { background: rgba(253, 195, 0, .03); }
+	
+	.wpcargo-wrap-details .Track_Num h2 { font-size: 26px !important; font-weight: bold !important; }

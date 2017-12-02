@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="{$data_server}css/history.min.css" type="text/css" media="screen">
+
+{if $users}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel">
+            <header class="panel-heading">Chat history</header>
+
+            <div class="panel-body table-responsive">
+                <div class="box-tools m-b-15">
+                    <div class="input-group">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right history_input" placeholder="Search"/>
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-hover">
+                    <tr>
+                        <th>#</th>
+                        <th>VISITOR</th>
+                        <th>SPECS</th>
+                        <th>LENGTH</th>
+                        <th>STATUS</th>
+                    </tr>
+
+                    {foreach from=$users item=i}
+
+                    <tr onclick="getRow({$i.request_id})">
+
+                        {literal}
+                        <script>
+                            function getRow(row) {
+                                window.location.href = applicationPath + 'visitors/history?request_id=' + row;
+                            }
+                        </script>
+                        {/literal}
+
+                        <td>{$i.request_id}</td>
+                        <td><span>{$i.name}</span></td>
+
+                        <td>
+
+                            <span>
+                                {if $i.country_name != '' && $i.country_name != 'Null'
+                                && $i.country_name != 'Undefined'}
+                                    <img class="tip_tip country_img" title="{$i.country_name}"
+                                     src="{$data_server}/img/countries/{$i.country_code|lower}.png"/>
+                                {else}
+                                    <img class="tip_tip" title="{$i.country_name}"
+                                     src="{$data_server}/img/countries/earth.png"/>
+                                {/if}
+                                <a class="tip_tip" title="{$i.os}, {$i.browser}"><i class="fa fa-desktop os_info"></i></a>
+                            </span>
+                        </td>
+                        <td>{$i.chat_length}</td>
+                        <td><a href="/{$languageURL}?user={$i.user_id}" class="tip_tip" title="End date: {$i.end_date}"><span
+                                class="label label-danger">Ended</span></a></td>
+                    </tr>
+
+                    {/foreach}
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{/if}
+{if $data}
+
+<div class="chat_dashboard_container clearfix screenFiller">
+
+    <div class="col-xs-8">
+        <div class="chat">
+            <div class="chat-header"></div>
+            <div id="chat_history" class="chat_history chat_history_vis_hide">
+                {if $data.history}
+                {foreach from=$data.history item=i}
+                {$i}
+                {/foreach}
+
+                {literal}
+                <script> $(document).ready(function () {
+                    refreshLayout();
+                }); </script>
+                {/literal}
+                {/if}
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xs-4">
+
+        <h4>Chat stats:</h4>
+        <p>Date: {$data.chat_date|date_format:"%A, %B %e, %Y"}</p>
+        <p>Length: {$data.chat_length}</p>
+        <h4>Visitors path:</h4>
+
+        {if $data.visitors_path}
+        {foreach from=$data.visitors_path item=i}
+        {$i}
+        {/foreach}
+        {/if}
+    </div>
+
+</div>
+
+
+<div class="row"></div>
+<br/>
+{/if}
+
+<script src="{$data_server}js/history.min.js" type="text/javascript"></script>

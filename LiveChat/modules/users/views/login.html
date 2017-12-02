@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="{$data_server}css/login.min.css" type="text/css" media="screen">
+
+<div class="wrapper">
+    <div class="box_err" id="error_msg">&nbsp;</div>
+
+    <form id="login_form" class="login" method="post">
+        <p class="title">Please Login</p>
+
+        <input type="text" id="username" name="username" placeholder="Username" autofocus/>
+        <i class="fa fa-user"></i>
+        <input type="password" id="password" name="password" placeholder="Password"/>
+        <i class="fa fa-key"></i>
+        <a href="#">Forgot your password?</a>
+        <button>
+            <i class="spinner"></i>
+            <span class="state">Log in</span>
+        </button>
+
+    </form>
+    <footer>Ultimate Support Chat</footer>
+
+</div>
+
+<script> var applicationPath = '{$application_path}';</script>
+<script src="{$data_server}js/login.min.js" type="text/javascript"></script>

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/* CSS Document */
+@import "woocommerce/woocommerce-default.css";
+@import "woocommerce/type1-fashion.css";
+@import "woocommerce/type2-jewel.css";
+@import "woocommerce/type3-business.css";
+@import "woocommerce/type4-hosting.css";
+@import "woocommerce/type5-spa.css";
+@import "woocommerce/type6-wedding.css";
+@import "woocommerce/type7-university.css";
+@import "woocommerce/type8-insurance.css";
+@import "woocommerce/type9-plumber.css";
+@import "woocommerce/type10-medical.css";
+@import "woocommerce/type11-model.css";
+@import "woocommerce/type12-attorney.css";
+@import "woocommerce/type13-architecture.css";
+@import "woocommerce/type14-fitness.css";
+@import "woocommerce/type15-hotel.css";
+@import "woocommerce/type16-photography.css";
+@import "woocommerce/type17-restaurant.css";
+@import "woocommerce/type18-event.css";
+@import "woocommerce/type19-nightclub.css";
+@import "woocommerce/type20-yoga.css";
+@import "woocommerce/type21-styleshop.css";
+
+@font-face {
+	font-family:star;
+	src:url(../fonts/star.eot);
+	src:url(../fonts/stard41d.eot?#iefix) format("embedded-opentype"), url(../fonts/star.woff) format("woff"), url(../fonts/star.ttf) format("truetype"), url(../fonts/star.svg#star) format("svg");
+	font-weight:400;
+	font-style:normal
+}
+@font-face {
+	font-family:WooCommerce;
+	src:url(../fonts/WooCommerce.eot);
+	src:url(../fonts/WooCommerced41d.eot?#iefix) format("embedded-opentype"), url(../fonts/WooCommerce.woff) format("woff"), url(../fonts/WooCommerce.ttf) format("truetype"), url(../fonts/WooCommerce.svg#WooCommerce) format("svg");
+	font-weight:400;
+	font-style:normal
+}

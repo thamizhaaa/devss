@@ -1,0 +1,63 @@
+/*----*****---- << Tablet (Portrait) >> ----*****----*/	
+
+/* Note: Design for a width of 768px */
+@media only screen and (min-width:768px) and (max-width:991px) {
+
+/* Home */  
+.header-align-center .header-right { width: 64%; }
+#main-menu ul.menu > li > a { font-size: 13px !important; }
+.header-align-left #main-menu > ul.menu > li > a,.header-align-center #main-menu > ul.menu > li > a { padding: 0 10px; }
+.dt-sc-image-caption.dt-sc-title-border .dt-sc-image-title h3 { font-size: 18px; }
+.dt-sc-counter.type1 .dt-sc-counter-number { font-size: 24px; }
+.vcr_row .vcr_content_flex_align.vc_col-sm-6, .dt-sc-stretch-row-content .dt-sc-dark-skin-highlight.vc_col-sm-6.vc_col-has-fill { width: 100%; }
+.dt-sc-icon-box.type6 .icon-content h4 { font-size: 22px; margin-top: 0; }
+.dt-sc-newsletter-section.type1 .dt-sc-subscribe-frm input[type="email"], .dt-sc-newsletter-section.type1 .dt-sc-subscribe-frm input[type="text"] { margin-right: 25px; }
+.dt-sc-newsletter-section.type1 h2:after { right: -15px; }
+.dt-sc-newsletter-section.type1 h2 { font-size: 14px; }
+
+/* boxed layout */
+.layout-boxed .main-header-wrapper { width: 100% !important; }
+
+.dt-sc-images-wrapper .carousel-arrows { top: -45px; }
+
+.dt-sc-image-caption .dt-sc-image-content { padding: 40px 25px 30px; }
+.dt-sc-image-caption.type3 .dt-sc-image-content, .dt-sc-image-caption.type9 .dt-sc-image-content { padding: 0; }
+
+.dt-sc-pr-tb-col.type1 .dt-sc-price h6 { font-size: 56px; }
+
+.dt-sc-testimonial-wrapper .carousel-arrows { bottom: -5px; }
+
+.dt-sc-title.with-boxed h2 { font-size: 24px; }
+
+/* footer */
+.footer-widgets { padding: 65px 0px 40px; }
+.widget .dt-sc-newsletter-section.type2 .dt-sc-subscribe-frm input[type="submit"] { top: -50px; }
+
+/* Store Locator */
+.wpsl-dropdown { height: 34px; padding: 0 10px !important; }
+@-moz-document url-prefix() { .wpsl-dropdown { padding: 0px !important; } }
+#wpsl-search-input, #wpsl-category .wpsl-dropdown { width: 169px !important; }
+#wpsl-search-wrap .wpsl-input { width: 40% !important; }
+#wpsl-search-wrap .wpsl-search-btn-wrap { clear: both; margin-top: 20px; margin-bottom: 10px; }
+
+.wpcargo-track { width: 100%; }
+
+/* Sidebar */
+.secondary-has-both-sidebar .widget #wp-calendar th { padding: 5px; }
+.secondary-has-both-sidebar .widget #wp-calendar td { padding: 5px 3px; }
+
+.vc_min_height_left .vc_column-inner, .vc_min_height_right .vc_column-inner { height: 100% !important; }
+
+/* Shortcode */
+.dt-sc-team.rounded.hide-social-show-on-hover .dt-sc-team-social { top: 12%; }
+.dt-sc-donutchart-medium .donutchart-text { line-height: 110px !important; }
+h5.dt-sc-donutchart-title { font-size: 14px; }
+.dt-sc-donutchart { height: 110px !important; }
+.dt-sc-icon-box.type12 { padding-left: 0; padding-right: 0; }
+.dt-sc-icon-box.type12 .icon-content h4 {  display: block; }
+
+/* sidebar */
+.widget #wp-calendar td { padding: 9px 3px; }
+.widget #wp-calendar th { padding: 10px 3px; }
+
+}

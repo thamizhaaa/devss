@@ -1,0 +1,17 @@
+/*
+	 Customized Scroll
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+.scroll-pane 		{ width: 175px; overflow: auto; padding-right: 10px; height: 140px; }
+
+
+
+.jScrollPaneContainer 	{ position: relative; overflow: hidden; z-index: 1; }
+
+.jScrollPaneTrack 		{ position: absolute; cursor: pointer; right: 0; top: 0; height: 100%;
+						  background: url(../images/bar_1.jpg) top center repeat-y; padding: 3px; }
+
+.jScrollPaneDrag	{ position: absolute; background: url(../images/ball.png) center center no-repeat;
+					  cursor: pointer; overflow: hidden; }

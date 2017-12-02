@@ -1,0 +1,14 @@
+/* Note: Design for a width of 1280px */	
+@media only screen and (min-width:1200px) and (max-width:1280px) {
+
+/* Home */  
+.dt-sc-icon-box.type6 .icon-content h4 { font-size: 24px; }
+.dt-sc-newsletter-section.type1 .dt-sc-subscribe-frm input[type="email"], .dt-sc-newsletter-section.type1 .dt-sc-subscribe-frm input[type="text"] { margin-right: 25px; }
+
+/* boxed layout */
+.layout-boxed .main-header-wrapper { width: 100% !important; }
+
+.vcr_content_flex_align { padding: 55px 11% 100px 90px; }
+
+
+}

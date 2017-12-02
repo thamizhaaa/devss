@@ -1,0 +1,240 @@
+@media screen and (max-width: 991px) {
+  .question-content-wrap .question-content {
+    min-height: 0;
+    padding: 25px;
+  }
+  .learn-section .tt-right {
+    position: static;
+  }
+  .sidebar-categories {
+    padding-right: 0;
+  }
+  .section-2-content .image img {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .message-body .message-sb {
+    border-right: 0;
+    height: 388px;
+  }
+  .message-body .message-ct {
+    padding: 15px;
+  }
+  .info-follow {
+    display: none;
+  }
+  .request-form {
+    margin-right: 0;
+  }
+  .form-check label {
+    display: block;
+  }
+  .form-check a {
+    display: block;
+    float: none;
+    margin-left: 32px;
+  }
+  .create-course-content h4 {
+    margin-bottom: 5px;
+  }
+  .tabs-page {
+    padding-left: 0;
+  }
+  .course-concern {
+    padding-top: 20px;
+  }
+  .blog-sidebar:before {
+    display: none;
+  }
+  .top-nav,
+  .top-nav h4 {
+    display: block;
+  }
+  .top-nav h4 {
+    text-align: center;
+    padding: 3px;
+    font-size: 12px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+  }
+  .top-nav-list {
+    display: block;
+    background-color: #eee;
+    float: none;
+    text-align: right;
+  }
+  .top-nav-list > li:first-child > a {
+    border-left: 1px solid #d4d4d4;
+  }
+  .top-nav-list > li > a {
+    line-height: 35px;
+    min-width: 35px;
+  }
+}
+@media screen and (max-width: 767px) {
+  h3,
+  .big {
+    font-size: 26px;
+  }
+  .featured-item {
+    min-height: 0;
+    padding-bottom: 15px;
+  }
+  .table-wrap .submissions {
+    width: 35%;
+  }
+  .table-wrap .latest-reply {
+    width: 25%;
+  }
+  .table-wrap .tb-icon {
+    width: auto;
+  }
+  .message-body .message-ct .download-ind {
+    position: static;
+  }
+  .changes-avatar {
+    margin-right: 20px;
+  }
+  .info-acount {
+    overflow: visible;
+  }
+  .info-author .image {
+    width: 55px;
+    height: 55px;
+    margin-right: 15px;
+  }
+  .info-author .address-author h3 {
+    font-size: 14px;
+  }
+  .name-author .fa,
+  .address-author .fa {
+    font-size: 14px;
+  }
+  .create-coures {
+    position: static;
+    display: block;
+  }
+  .create-coures a {
+    width: 100%;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .profile-email p,
+  .profile-address p {
+    display: block;
+    margin: 0;
+  }
+  .setting-box ul .icon {
+    margin-right: 0;
+  }
+  .page-control .page-view {
+    display: none;
+  }
+  .form-login,
+  .request-form {
+    padding: 20px;
+  }
+  .form-login .link {
+    margin-top: 40px;
+  }
+  .design-course-tabs li a {
+    font-size: 0;
+  }
+  .design-course-tabs li a .icon,
+  .design-course-tabs li a .fa {
+    font-size: 16px;
+    vertical-align: middle;
+    margin-right: 0;
+  }
+  .new-course {
+    text-align: center;
+  }
+  .create-course-content .tab-content {
+    width: 767px;
+    padding-right: 30px;
+  }
+  .create-course-content {
+    overflow-x: auto;
+  }
+
+  .new-course .item .icon {
+    position: static;
+  }
+  .new-course .item {
+    width: 100%;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 1200px){
+  .tabs-page .nav-tabs-wrap {
+    overflow-x: auto;
+  }
+  .tabs-page .nav-tabs {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 540px) {
+  .categories-content .content [class*="col-"],
+  .course-concern [class*="col-"] {
+    width: 100%;
+    float: none;
+  }
+  .create-course-content .course-banner .image-info {
+    float: none;
+  }
+  .create-course-content .course-banner .upload-recrop > div {
+    margin: 0 !important;
+    margin-top: 15px !important;
+  }
+  .create-course-content {
+    padding: 10px 15px;
+  }
+  .create-course-content .table-categories,
+  .create-course-content .table-categories tbody,
+  .create-course-content .table-categories tr,
+  .create-course-content .table-categories th,
+  .create-course-content .table-categories td,
+  .create-course-content .table-categories thead,
+  .create-course-content .table-categories tfoot {
+    display: block;
+  }
+
+  .section-outline .section-list li .count,
+  .section-outline .section-list li .list-body .download {
+    display: none;
+  }
+  .section-outline .section-list li .list-body {
+    padding: 16px 38px;
+  }
+  .section-outline .section-list li {
+    border-left: 1px solid #D4D4D4;
+  }
+  .section-outline .section-list li .list-body .icon {
+    left: 10px;
+  }
+  .section-outline .section-list li .div-x {
+    right: 10px;
+  }
+  .section-outline .section-list li .line {
+    right: 20px;
+  }
+  .info-instructor {
+    overflow: visible;
+  }
+  .post .post-media {
+    width: auto;
+    height: auto;
+    float: none;
+    margin-bottom: 15px;
+    margin-right: 0;
+  }
+  .post .post-media img {
+    width: 100%;
+  }
+  .text-form-editor img{
+    width: 100%;
+  }
+  .list-student .list-body .icon-wrap{
+    position: relative;
+  }
+}

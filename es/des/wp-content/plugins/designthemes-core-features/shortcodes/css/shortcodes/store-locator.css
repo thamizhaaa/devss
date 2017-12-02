@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* Table of Content
+==================================================
+	1.0 - Transition
+	2.0 - Popular Procedures
+	3.0 - Responsive
+	4.0 - Skin Color*/
+	
+	
+	#wpsl-category { clear: none !important; }
+	.wpsl-search { padding: 22px 12px 10px !important; }
+	.wpsl-locations-details { display: inline-block !important; background: #f3f4f6 !important; padding: 15px 25px 10px !important; width: 100% !important; color: #fff !important; }	
+	#wpsl-search-wrap div { margin-right: 30px !important; }
+	#wpsl-search-wrap .wpsl-input > div { margin-right: 10px !important; }
+	#wpsl-search-btn { margin-top: 0 !important; }
+	#wpsl-search-wrap label { color: #fff !important; }
+	#wpsl-search-btn { background: #000; color: #fff !important; border-radius: 0 !important; padding: 9px 22px !important; font-weight: 600 !important; }
+	
+	@-moz-document url-prefix() { 
+	#wpsl-search-btn { padding: 10px 22px !important; } 
+	}
+	
+	#wpsl-search-wrap div label { line-height: 36px !important; }
+	#wpsl-search-btn, #wpsl-search-wrap input, .wpsl-dropdown { border: none !important; border-radius: 0 !important; }
+	#wpsl-stores, .wpsl-store-location strong a { color: #fff !important; }
+	.wpsl-store-location strong { margin-bottom: 10px !important; display: block !important; font-size: 16px !important; }
+	 
+	.wpsl-direction-wrap { display: inline !important; padding: 5px 7px !important; }
+	.wpsl-direction-wrap a { display: inline-block !important; margin-top: 10px !important; margin-left: 6px !important; color: #fff !important; }
+	
+	#wpsl-search-wrap #wpsl-radius, #wpsl-results .wpsl-dropdown, #wpsl-search-wrap #wpsl-category, #wpsl-search-wrap #wpsl-results { margin-right: 0px !important; }
